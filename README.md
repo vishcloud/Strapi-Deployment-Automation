@@ -64,6 +64,9 @@ yarn start
 ```
 
 ### 5. Admin Panel Configuration
+Instead of directly running the cloned repo (which is Strapi's source code), create your own project using:
+npx create-strapi-app@latest my-strapi-app --quickstart
+This creates a new project and starts a local dev server (Strapi admin panel will open at http://localhost:1337/admin)
 - Access the admin panel at http://localhost:1337/admin
 - Create an administrator account with secure credentials.
 - Opt for local-only development (skip Strapi Cloud setup).
