@@ -163,3 +163,13 @@ examples/**/types/generated
 templates/yarn.lock
 
 .terraform/
+
+# Ignore everything
+*
+
+# But NOT these:
+!*.tf
+!user-data.sh
+!my-project/
+!.gitignore
+!README.md
