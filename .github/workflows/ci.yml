@@ -25,15 +25,17 @@ jobs:
 
     - name: Set Image Tag
       id: vars
-      run: echo "tag=strapi-${{ github.sha }}" >> $GITHUB_OUTPUT
+      run: |
+        echo "IMAGE_TAG=${{ secrets.ECR_REPOSITORY }}:strapi-${{ github.sha }}" >> $GITHUB_ENV
+        echo "tag=strapi-${{ github.sha }}" >> $GITHUB_OUTPUT
 
     - name: Build Docker Image
       run: |
-        docker build -t ${{ secrets.ECR_REPOSITORY }}:${{ steps.vars.outputs.tag }} .
+        docker build -t $IMAGE_TAG .
 
     - name: Push Docker Image to ECR
       run: |
-        docker push ${{ secrets.ECR_REPOSITORY }}:${{ steps.vars.outputs.tag }}
+        docker push $IMAGE_TAG
 
     - name: Output Image Tag
-      run: echo "IMAGE_TAG=${{ steps.vars.outputs.tag }}" >> $GITHUB_ENV
+      run: echo "IMAGE_TAG=$IMAGE_TAG"
