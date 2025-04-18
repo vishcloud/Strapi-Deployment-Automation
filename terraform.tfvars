@@ -1,0 +1,8 @@
+aws_region = "us-east-1"
+instance_type = "t2.medium"
+ssh_key_name = "strapi-ec2-key"
+vpc_id = "vpc-06d8d62f289ef46d0"
+subnet_id = "subnet-0b672b5fc47ae0c83"
+strapi_database_name = "strapi"
+strapi_database_username = "strapiuser"
+strapi_database_password = "Vishal123!"
